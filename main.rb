@@ -1,11 +1,9 @@
 require_relative './app'
 
+# rubocop:disable Metrics
+
 def main
   app = App.new
-  app.start_library
-end
-
-def run
   loop do
     puts 'Welcome to School Library App!'
     sleep 0.5
@@ -21,31 +19,25 @@ def run
     puts
 
     option = gets.chomp.to_i
-    user_option option
-  end
-end
-
-# rubocop:disable Metrics
-
-def user_option(input)
-  case input
-  when 1
-    list_all_books
-  when 2
-    list_all_people
-  when 3
-    create_a_person
-  when 4
-    create_a_book
-  when 5
-    create_a_rental
-  when 6
-    list_rentals
-  when 7
-    puts 'Thank you for using this app!'
-    exit
-  else
-    puts 'Invalid option, please enter a number between 1 and 7'
+    case option
+    when 1
+      app.list_all_books
+    when 2
+      app.list_all_people
+    when 3
+      app.create_a_person
+    when 4
+      app.create_a_book
+    when 5
+      app.create_a_rental
+    when 6
+      app.list_rentals
+    when 7
+      puts 'Thank you for using this app!'
+      exit
+    else
+      puts 'Invalid option, please enter a number between 1 and 7'
+    end
   end
 end
 

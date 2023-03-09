@@ -16,10 +16,6 @@ class App
     @rentals = []
   end
 
-  def start_library
-    run
-  end
-
   def list_all_books
     if @books.empty?
       puts 'The book list is currently empty.'

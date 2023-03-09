@@ -210,10 +210,3 @@ class App
 end
 
 # rubocop: enable Metrics
-
-def main
-  app = App.new
-  app.run
-end
-
-main

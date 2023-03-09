@@ -18,7 +18,6 @@ class App
 
   def start_library
     run
-    user_option
   end
 
   def list_all_books

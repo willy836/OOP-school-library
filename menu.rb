@@ -1,7 +1,5 @@
 require_relative './app'
 
-
-
 class Menu
   def initialize(app)
     @app = app
@@ -23,25 +21,33 @@ class Menu
       puts
 
       option = gets.chomp.to_i
-      case option
-      when 1
-        @app.list_all_books
-      when 2
-        @app.list_all_people
-      when 3
-        @app.create_a_person
-      when 4
-        @app.create_a_book
-      when 5
-        @app.create_a_rental
-      when 6
-        @app.list_rentals
-      when 7
-        puts 'Thank you for using this app!'
-        exit
-      else
-        puts 'Invalid option, please enter a number between 1 and 7'
-      end
+      handle_option(option, @app)
     end
   end
+
+  # rubocop:disable Metrics
+
+  def handle_option(option, app)
+    case option
+    when 1
+      app.list_all_books
+    when 2
+      app.list_all_people
+    when 3
+      app.create_a_person
+    when 4
+      app.create_a_book
+    when 5
+      app.create_a_rental
+    when 6
+      app.list_rentals
+    when 7
+      puts 'Thank you for using this app!'
+      exit
+    else
+      puts 'Invalid option, please enter a number between 1 and 7'
+    end
+  end
+
+  # rubocop: enable Metrics
 end

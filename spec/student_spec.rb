@@ -32,10 +32,13 @@ describe Student do
       it "returns student's classroom" do
         expect(@student.classroom).to eq @classroom
       end
+    
+    it "adds the student to the classroom's student list" do
+      expect(@classroom.students).not_to include(@student)
+      @student.classroom = @classroom
+      expect(@classroom.students).to include(@student)
+    end
   
-    #   it "adds the student to the classroom's student list" do
-    #     expect(@classroom.students).to include(@student)
-    #   end
   
       it "doesn't add the student to the same classroom twice" do
         @student.classroom = @classroom

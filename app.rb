@@ -4,16 +4,24 @@ require_relative './teacher'
 require_relative './book'
 require_relative './rental'
 require_relative './classroom'
+require_relative './preserve_books'
+require_relative './preserve_people'
+require_relative './preserve_rentals'
+
 
 # rubocop:disable Metrics
 
 class App
   attr_accessor :people, :books, :rentals
 
+  include PreserveBooksData
+  include PreservePeopleData
+  include PreserveRentalsData
+
   def initialize
-    @people = []
-    @books = []
-    @rentals = []
+    @people = load_people
+    @books = load_books
+    @rentals = load_rentals
   end
 
   def list_all_books
@@ -78,6 +86,7 @@ class App
       puts 'Invalid entry'
     end
     puts 'Student created successfully'
+    store_people(@people)
     sleep 0.5
   end
 
@@ -95,6 +104,7 @@ class App
     @people << teacher
 
     puts 'Teacher created successfully'
+    store_people(@people)
     sleep 0.5
   end
 
@@ -108,6 +118,7 @@ class App
     book = Book.new(title, author)
     @books << book
     puts 'Book added successfully'
+    store_books(@books)
     sleep 0.5
   end
 
@@ -137,6 +148,7 @@ class App
       @rentals << rental
       puts 'Rental created successfully'
     end
+    store_rentals(@rentals)
     sleep 0.5
   end
 

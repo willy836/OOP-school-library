@@ -8,7 +8,6 @@ require_relative './preserve_books'
 require_relative './preserve_people'
 require_relative './preserve_rentals'
 
-
 # rubocop:disable Metrics
 
 class App

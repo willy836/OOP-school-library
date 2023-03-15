@@ -26,7 +26,7 @@ module PreserveBooksData
     file = './data_store/books.json'
     return [] unless File.exist?(file)
 
-    if File.zero?(file)
+    if File.empty?(file)
       []
     else
       JSON.parse(File.read(file)).map do |book|

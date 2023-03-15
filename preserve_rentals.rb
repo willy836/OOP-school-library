@@ -36,7 +36,7 @@ module PreserveRentalsData
     file = './data_store/rentals.json'
     return [] unless File.exist?(file)
 
-    if File.zero?(file)
+    if File.empty?(file)
       []
     else
       JSON.parse(File.read(file)).map do |rental|
@@ -47,3 +47,5 @@ module PreserveRentalsData
 end
 
 # rubocop:enable Metrics
+
+

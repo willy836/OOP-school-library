@@ -44,8 +44,8 @@ module PreservePeopleData
 
     return [] unless File.exist?(teachers_file) && File.exist?(students_file)
 
-    teachers_data = File.zero?(teachers_file) ? [] : JSON.parse(File.read(teachers_file))
-    students_data = File.zero?(students_file) ? [] : JSON.parse(File.read(students_file))
+    teachers_data = File.empty?(teachers_file) ? [] : JSON.parse(File.read(teachers_file))
+    students_data = File.empty?(students_file) ? [] : JSON.parse(File.read(students_file))
 
     teachers = teachers_data.map do |teacher|
       Teacher.new(teacher['specialization'], teacher['age'], teacher['name'])

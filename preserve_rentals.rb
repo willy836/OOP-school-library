@@ -47,5 +47,3 @@ module PreserveRentalsData
 end
 
 # rubocop:enable Metrics
-
-

@@ -2,30 +2,30 @@ require 'yaml'
 require './classroom'
 
 describe Classroom do
-    before :each do
-        @classroom = Classroom.new('Label')
+  before :each do
+    @classroom = Classroom.new('Label')
+  end
+
+  describe '#initialize' do
+    it 'sets label' do
+      expect(@classroom.label).to eq 'Label'
     end
 
-    describe '#initialize' do
-    it "sets label" do
-        expect(@classroom.label).to eq 'Label'
+    it 'initializes students to an empty array' do
+      expect(@classroom.students).to eq []
     end
+  end
 
-    it "initializes students to an empty array" do
-        expect(@classroom.students).to eq []
-      end
+  describe '#add_student' do
+    it 'adds the student to the students array' do
+      student = double('Student')
+      expect(student).to receive(:classroom=).with(@classroom)
+      @classroom.add_student(student)
+      expect(@classroom.students).to eq [student]
     end
-
-    describe '#add_student' do
-    it "adds the student to the students array" do
-        student = double("Student")
-        expect(student).to receive(:classroom=).with(@classroom)
-        @classroom.add_student(student)
-        expect(@classroom.students).to eq [student]
-      end
 
     it "sets the student's classroom to this classroom" do
-      student = double("Student")
+      student = double('Student')
       expect(student).to receive(:classroom=).with(@classroom)
       @classroom.add_student(student)
     end

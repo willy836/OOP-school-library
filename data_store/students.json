@@ -1,0 +1,20 @@
+[
+  {
+    "age": 19,
+    "classroom": "A",
+    "name": "Jane",
+    "parent_permission": true
+  },
+  {
+    "age": 17,
+    "classroom": "B",
+    "name": "Mark",
+    "parent_permission": false
+  },
+  {
+    "age": 16,
+    "classroom": "D",
+    "name": "Liam",
+    "parent_permission": true
+  }
+]

@@ -39,7 +39,6 @@ describe Student do
       expect(@classroom.students).to include(@student)
     end
 
-
     it "doesn't add the student to the same classroom twice" do
       @student.classroom = @classroom
       expect(@classroom.students.count(@student)).to eq 1
